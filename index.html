@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Like Mike Computers – Quality Tech. Expert Service.</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome 6 (Free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <style>
+        /* ============================
+           CSS VARIABLES & RESET
+        ============================ */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #111827;
+            --bg-card: #1a2332;
+            --bg-input: #1f2a3a;
+            --text-primary: #f0f4f8;
+            --text-secondary: #b0c4de;
+            --text-muted: #7a8aa0;
+            --accent: #3b82f6;
+            --accent-dark: #2563eb;
+            --accent-glow: rgba(59, 130, 246, 0.15);
+            --border-color: #2a3a4e;
+            --radius: 12px;
+            --shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.7);
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ============================
+           SCROLLBAR
+        ============================ */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 12px;
+        }
+
+        /* ============================
+           BUTTONS
+        ============================ */
+        .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            letter-spacing: 0.3px;
+            font-family: var(--font);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px -8px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1.5px solid var(--border-color);
+        }
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: var(--accent-glow);
+        }
+
+        .btn-sm {
+            padding: 10px 24px;
+            font-size: 0.85rem;
+        }
+
+        /* ============================
+           HEADER / NAV
+        ============================ */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 18px 0;
+            background: rgba(10, 14, 23, 0.88);
+            backdrop-filter: blur(16px) saturate(1.2);
+            border-bottom: 1px solid rgba(42, 58, 78, 0.3);
+            transition: var(--transition);
+        }
+
+        .header.scrolled {
+            background: rgba(10, 14, 23, 0.97);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .logo i {
+            color: var(--accent);
+            font-size: 1.4rem;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: var(--transition);
+            position: relative;
+            cursor: pointer;
+        }
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+        .nav a:hover {
+            color: var(--text-primary);
+        }
+        .nav a:hover::after {
+            width: 100%;
+        }
+        .nav a.active {
+            color: var(--text-primary);
+        }
+        .nav a.active::after {
+            width: 100%;
+        }
+
+        .nav .btn {
+            padding: 10px 28px;
+            font-size: 0.85rem;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+        .hamburger span {
+            width: 26px;
+            height: 2.5px;
+            background: var(--text-primary);
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        /* ============================
+           HERO
+        ============================ */
+        .hero {
+            padding: 140px 0 100px;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(59, 130, 246, 0.07) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(59, 130, 246, 0.04) 0%, transparent 50%),
+                var(--bg-primary);
+            z-index: 0;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.6rem, 5.5vw, 4.4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 .highlight {
+            color: var(--accent);
+            position: relative;
+        }
+
+        .hero-content h1 .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: var(--accent);
+            opacity: 0.25;
+            border-radius: 4px;
+        }
+
+        .hero-content p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 480px;
+            margin-bottom: 36px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image .image-wrapper {
+            width: 100%;
+            max-width: 520px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url('https://images.unsplash.com/photo-1498049794561-7780e7231661?w=800&h=600&fit=crop&crop=center&auto=format');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .hero-image .image-wrapper .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(10, 14, 23, 0.25), rgba(10, 14, 23, 0.05));
+        }
+
+        /* ============================
+           SECTION COMMON
+        ============================ */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 12px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            padding: 4px 16px;
+            border-radius: 50px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 16px;
+        }
+
+        .section-sub {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 560px;
+            line-height: 1.7;
+        }
+
+        .section-header {
+            margin-bottom: 56px;
+        }
+        .section-header.text-center {
+            text-align: center;
+        }
+        .section-header.text-center .section-sub {
+            margin: 0 auto;
+        }
+
+        /* ============================
+           ABOUT
+        ============================ */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            aspect-ratio: 4/3;
+            background-image: url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&h=600&fit=crop&crop=center&auto=format');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .about-image .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(10, 14, 23, 0.2), rgba(10, 14, 23, 0.05));
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px 32px;
+            margin-top: 28px;
+        }
+
+        .about-features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .about-features li i {
+            color: var(--accent);
+            font-size: 1rem;
+            width: 20px;
+        }
+
+        /* ============================
+           SERVICES
+        ============================ */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 36px 28px 32px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            cursor: default;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent);
+            box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.5);
+            background: #1f2a3e;
+        }
+
+        .service-card .icon {
+            font-size: 2.2rem;
+            color: var(--accent);
+            margin-bottom: 18px;
+            display: block;
+        }
+
+        .service-card h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        /* ============================
+           CONTACT
+        ============================ */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .contact-info .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+        }
+
+        .contact-info .info-item .icon-box {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            background: var(--accent-glow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.2rem;
+            border: 1px solid rgba(59, 130, 246, 0.15);
+        }
+
+        .contact-info .info-item .text h4 {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 2px;
+        }
+
+        .contact-info .info-item .text p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .contact-info .info-item .text a {
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+        .contact-info .info-item .text a:hover {
+            color: var(--accent);
+        }
+
+        .contact-form {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: var(--text-secondary);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 14px 18px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-family: var(--font);
+            font-size: 0.95rem;
+            transition: var(--transition);
+            outline: none;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px var(--accent-glow);
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        .contact-form .btn {
+            width: 100%;
+            padding: 16px;
+            font-size: 1rem;
+        }
+
+        .form-status {
+            margin-top: 16px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.92rem;
+            display: none;
+        }
+
+        .form-status.success {
+            display: block;
+            background: rgba(52, 211, 153, 0.12);
+            color: #34d399;
+            border: 1px solid rgba(52, 211, 153, 0.2);
+        }
+
+        .form-status.error {
+            display: block;
+            background: rgba(239, 68, 68, 0.12);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        /* ============================
+           FOOTER
+        ============================ */
+        .footer {
+            padding: 48px 0 32px;
+            border-top: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+        }
+
+        .footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer .logo {
+            font-size: 1.3rem;
+        }
+
+        .footer p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* ============================
+           RESPONSIVE
+        ============================ */
+        @media (max-width: 992px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-content p {
+                margin: 0 auto 36px;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .about-features {
+                justify-content: center;
+            }
+            .about-features li {
+                justify-content: center;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-info {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: var(--bg-secondary);
+                flex-direction: column;
+                justify-content: center;
+                gap: 28px;
+                padding: 40px;
+                border-left: 1px solid var(--border-color);
+                transition: var(--transition);
+                z-index: 999;
+            }
+
+            .nav.open {
+                right: 0;
+            }
+
+            .hamburger {
+                display: flex;
+                z-index: 1001;
+            }
+
+            .hamburger.open span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            .hamburger.open span:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.open span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+
+            .hero {
+                padding: 120px 0 60px;
+                min-height: auto;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 24px;
+            }
+
+            .footer .container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            .hero-buttons .btn {
+                width: 100%;
+                text-align: center;
+            }
+            .section-title {
+                font-size: 1.7rem;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================
+           MOBILE OVERLAY
+        ============================ */
+        .nav-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+        }
+        .nav-overlay.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ======= HEADER ======= -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <i class="fas fa-laptop-code"></i> Like Mike<span>Computers</span>
+            </a>
+
+            <nav class="nav" id="nav">
+                <a href="#hero" class="active">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+                <a href="#contact" class="btn btn-primary btn-sm">Get In Touch</a>
+            </nav>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile overlay -->
+    <div class="nav-overlay" id="navOverlay"></div>
+
+    <!-- ======= HERO ======= -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>
+                    Quality Tech.<br />
+                    <span class="highlight">Expert Service.</span>
+                </h1>
+                <p>
+                    Like Mike Computers is your trusted partner for all things tech —
+                    from sales and repairs to custom builds and IT solutions.
+                    We deliver quality products and professional service you can rely on.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Get a Quote</a>
+                    <a href="#services" class="btn btn-outline">Our Services</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-wrapper">
+                    <div class="overlay"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= ABOUT ======= -->
+    <section id="about" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <div class="overlay"></div>
+                </div>
+                <div class="about-text">
+                    <span class="section-label">About Us</span>
+                    <h2 class="section-title">Your Trusted <br />Computer Store</h2>
+                    <p>
+                        Like Mike Computers has been serving the Addis Ababa community with
+                        reliable computer hardware, software solutions, and expert repairs.
+                        Whether you need a new laptop, a desktop upgrade, or a full IT
+                        setup for your business, we've got you covered.
+                    </p>
+                    <p>
+                        Located on the 2nd floor of Bethelem Plaza at the Megenagna
+                        roundabout, we're easily accessible and ready to help with all
+                        your computing needs.
+                    </p>
+                    <ul class="about-features">
+                        <li><i class="fas fa-check-circle"></i> New &amp; refurbished computers</li>
+                        <li><i class="fas fa-check-circle"></i> Fast, reliable repairs</li>
+                        <li><i class="fas fa-check-circle"></i> Custom PC builds</li>
+                        <li><i class="fas fa-check-circle"></i> IT &amp; networking support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= SERVICES ======= -->
+    <section id="services">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-label">What We Offer</span>
+                <h2 class="section-title">Professional Tech <br />Solutions.</h2>
+                <p class="section-sub">
+                    From hardware to software, we provide comprehensive services
+                    to keep you running smoothly.
+                </p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <span class="icon"><i class="fas fa-laptop"></i></span>
+                    <h4>Computer Sales</h4>
+                    <p>New and refurbished desktops, laptops, and workstations from top brands with warranty.</p>
+                </div>
+
+                <div class="service-card">
+                    <span class="icon"><i class="fas fa-tools"></i></span>
+                    <h4>Repairs &amp; Maintenance</h4>
+                    <p>Fast, professional diagnostics and repairs for hardware failures, viruses, and more.</p>
+                </div>
+
+                <div class="service-card">
+                    <span class="icon"><i class="fas fa-microchip"></i></span>
+                    <h4>Custom Builds &amp; Upgrades</h4>
+                    <p>Tailor-made systems for gaming, productivity, or business — built to your specs.</p>
+                </div>
+
+                <div class="service-card">
+                    <span class="icon"><i class="fas fa-network-wired"></i></span>
+                    <h4>Networking &amp; IT Support</h4>
+                    <p>Setup, security, and ongoing support for home and business networks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= CONTACT ======= -->
+    <section id="contact" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-label">Get in Touch</span>
+                <h2 class="section-title">Let's Talk <br />Tech.</h2>
+                <p class="section-sub">
+                    Have a question, need a quote, or want to book a repair?
+                    Reach out — we're here to help.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <div class="info-item">
+                        <div class="icon-box"><i class="fas fa-phone-alt"></i></div>
+                        <div class="text">
+                            <h4>Call Us</h4>
+                            <p><a href="tel:+251911678795">0911 678 795</a></p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="text">
+                            <h4>Visit Us</h4>
+                            <p>2nd floor, Bethelem Plaza<br />Megenagna Roundabout<br />Addis Ababa, Ethiopia</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="icon-box"><i class="fas fa-envelope"></i></div>
+                        <div class="text">
+                            <h4>Email</h4>
+                            <p><a href="mailto:info@likemikecomputers.com">info@likemikecomputers.com</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="Your full name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="you@example.com" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="Your phone number" />
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" placeholder="Tell us about your computer needs…" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane" style="margin-right: 8px;"></i> Send Message
+                    </button>
+                    <div class="form-status" id="formStatus"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= FOOTER ======= -->
+    <footer class="footer">
+        <div class="container">
+            <a href="#" class="logo">
+                <i class="fas fa-laptop-code"></i> Like Mike<span>Computers</span>
+            </a>
+            <p>&copy; 2026 Like Mike Computers. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ============================
+    JAVASCRIPT
+    ============================ -->
+    <script>
+        (function() {
+            'use strict';
+
+            // ----- DOM refs -----
+            const header = document.getElementById('header');
+            const hamburger = document.getElementById('hamburger');
+            const nav = document.getElementById('nav');
+            const overlay = document.getElementById('navOverlay');
+            const navLinks = nav.querySelectorAll('a:not(.btn)');
+            const allNavAnchors = nav.querySelectorAll('a[href^="#"]');
+            const form = document.getElementById('contactForm');
+            const statusEl = document.getElementById('formStatus');
+
+            // ----- Smooth scroll for nav links -----
+            allNavAnchors.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    const targetEl = document.querySelector(targetId);
+                    if (targetEl) {
+                        e.preventDefault();
+                        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        if (nav.classList.contains('open')) toggleMenu();
+                    }
+                });
+            });
+
+            // ----- Hamburger toggle -----
+            function toggleMenu() {
+                hamburger.classList.toggle('open');
+                nav.classList.toggle('open');
+                overlay.classList.toggle('show');
+                document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+            }
+
+            hamburger.addEventListener('click', toggleMenu);
+            overlay.addEventListener('click', toggleMenu);
+
+            // ----- Header scroll effect -----
+            window.addEventListener('scroll', () => {
+                const current = window.pageYOffset || document.documentElement.scrollTop;
+                if (current > 60) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            }, { passive: true });
+
+            // ----- Active nav link on scroll -----
+            const sections = document.querySelectorAll('section[id]');
+            window.addEventListener('scroll', () => {
+                let currentId = '';
+                sections.forEach(section => {
+                    const top = section.offsetTop - 120;
+                    if (window.pageYOffset >= top) {
+                        currentId = section.getAttribute('id');
+                    }
+                });
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + currentId) {
+                        link.classList.add('active');
+                    }
+                });
+            }, { passive: true });
+
+            // ----- Contact form -----
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const message = document.getElementById('message').value.trim();
+
+                if (!name || !email || !message) {
+                    showStatus('Please fill in all required fields.', 'error');
+                    return;
+                }
+
+                if (!email.includes('@') || !email.includes('.')) {
+                    showStatus('Please enter a valid email address.', 'error');
+                    return;
+                }
+
+                const payload = { name, email, phone, message };
+
+                try {
+                    const response = await fetch('/contact', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        showStatus('Thank you! Your message has been sent. We\'ll get back to you soon.', 'success');
+                        form.reset();
+                    } else {
+                        showStatus(data.message || 'Something went wrong. Please try again.', 'error');
+                    }
+                } catch (err) {
+                    console.error('Fetch error:', err);
+                    showStatus('Network error. Please check your connection and try again.', 'error');
+                }
+            });
+
+            function showStatus(msg, type) {
+                statusEl.textContent = msg;
+                statusEl.className = 'form-status ' + type;
+                statusEl.style.display = 'block';
+
+                clearTimeout(window._statusTimer);
+                window._statusTimer = setTimeout(() => {
+                    statusEl.style.display = 'none';
+                }, 6000);
+            }
+
+        })();
+    </script>
+
+</body>
+</html>
